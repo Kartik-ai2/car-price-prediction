@@ -1,0 +1,12 @@
+certifi==2021.5.30
+wincertstore==0.2
+numpy
+pandas
+seaborn
+scipy
+matplotlib
+pandas
+flask
+xgboost
+sklearn
+gunicorn

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Car Price</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+
+    <form action="{{ url_for('predict')}}"method="post">
+      <input type="text" placeholder="Enter Year of car." name="year" required="required">
+    	<input type="number" placeholder="Enter your car driven(in km)" name = "km_driven" required="required">
+      <select name="fuel" required="required">
+<option >Select your Fuel Type</option>
+<option value="1">Diesel</option>
+<option value="3">Petrol</option>
+<option value="0">C.N.G.</option>
+<option value="2">L.P.G.</option>
+</select>
+
+<select name="seller_type">
+<option >Select Seller Type</option>
+<option value="1">Individual</option>
+<option value="0">Dealer</option>
+<option value="2">Trust Mark Dealer</option>
+</select>
+
+<select name="transmission">
+<option >Select Transmission Type</option>
+<option value="0">Automatic</option>
+<option value="1">Manual</option>
+</select>
+
+<select name="owner">
+<option >Select Owner Type</option>
+<option value="1">First Owner</option>
+<option value="2">Second Owner</option>
+<option value="3">Third Owner</option>
+<option value="4">Fourth and above</option>
+<option value="5">Test Drive</option>
+</select>
+
+<select name="seats" required="required">
+<option >Select Seat Number</option>
+<option value="2">Two</option>
+<option value="4">Four</option>
+<option value="5">Fiver</option>
+<option value="6">Six</option>
+<option value="7">Seven</option>
+<option value="8">Eight</option>
+<option value="9">Nine</option>
+<option value="10">Ten</option>
+<option value="14">Fourteen</option>
+</select>
+
+<input type="number" placeholder="Enter Mileage in kmpl" name="mileage(kmpl)" required="required">
+
+
+<input type="number" placeholder="Enter Power" name="max_power(bhp)" required="required">
+<input type="number" placeholder="Enter Engine(in cc)" name="engine(cc)" required="required">
+
+
+<input type="number" placeholder="Enter torque" name="torque(Nm)" required="required">
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
