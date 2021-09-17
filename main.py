@@ -13,7 +13,7 @@ def predict():
 
     prediction=model.predict(final_features)
     output=prediction
-    return render_template('index.html',perdiction_text='Price ={}'.format(output))
+    return render_template('index.html',prediction_text='Price ={}'.format(output))
 
 
 
